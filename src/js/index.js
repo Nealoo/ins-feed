@@ -6,5 +6,8 @@
 
 // document.head.appendChild(my_awesome_script);
 
+import '../scss/index.scss';
+
+import './test1';
 
 console.log('hello world!');

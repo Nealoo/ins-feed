@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,7 +94,52 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n// test script \n\n// var my_awesome_script = document.createElement('script');\n\n// my_awesome_script.setAttribute('src','https://nealoo.github.io/ins-feed/index.js');\n\n// document.head.appendChild(my_awesome_script);\n\n\nconsole.log('hello worl  123  d!');\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("\n\n__webpack_require__(/*! ../scss/index.scss */ \"./src/scss/index.scss\");\n\n__webpack_require__(/*! ./test1 */ \"./src/js/test1.js\");\n\n// test script \n\n// var my_awesome_script = document.createElement('script');\n\n// my_awesome_script.setAttribute('src','https://nealoo.github.io/ins-feed/index.js');\n\n// document.head.appendChild(my_awesome_script);\n\nconsole.log('hello world!');\n\n//# sourceURL=webpack:///./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/test1.js":
+/*!*************************!*\
+  !*** ./src/js/test1.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n__webpack_require__(/*! ../scss/test.scss */ \"./src/scss/test.scss\");\n\n//# sourceURL=webpack:///./src/js/test1.js?");
+
+/***/ }),
+
+/***/ "./src/scss/index.scss":
+/*!*****************************!*\
+  !*** ./src/scss/index.scss ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/index.scss?");
+
+/***/ }),
+
+/***/ "./src/scss/test.scss":
+/*!****************************!*\
+  !*** ./src/scss/test.scss ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/test.scss?");
+
+/***/ }),
+
+/***/ 0:
+/*!****************************************************!*\
+  !*** multi ./src/js/index.js ./src/scss/test.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ./src/js/index.js */\"./src/js/index.js\");\nmodule.exports = __webpack_require__(/*! ./src/scss/test.scss */\"./src/scss/test.scss\");\n\n\n//# sourceURL=webpack:///multi_./src/js/index.js_./src/scss/test.scss?");
 
 /***/ })
 
