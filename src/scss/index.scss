@@ -1,7 +1,7 @@
 .insf__container{
     // overwrite everything; push whole website down after load this.
     // padding-top: 100px;
-    height: 64px;
+    height: 66px;
     width: 100%;
     overflow: auto;
 }
@@ -9,10 +9,11 @@
 .insf__story-group{
     display: inline-block;
     border: 2px black solid;
-    width: 50px;
-    height: 50px;
+    width: 62px;
+    height: 62px;
     padding: 4px;
     border-radius: 36px;
+    box-sizing: border-box;
 }
 
 .insf__story-group-image{
