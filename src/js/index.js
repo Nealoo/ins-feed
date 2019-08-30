@@ -20,6 +20,6 @@ import mainHtml from '../template/index.handlebars';
     if(window.innerWidth > 768){
         return false;
     }
-    
+    console.log('tesss')
     $('body').prepend(mainHtml(storyGroupData));
 })();

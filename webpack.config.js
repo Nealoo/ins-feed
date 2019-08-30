@@ -26,13 +26,14 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                  // fallback to style-loader in development
-                //   process.env.NODE_ENV !== 'production'
-                //     ? 'style-loader'
-                //     : MiniCssExtractPlugin.loader,
-                MiniCssExtractPlugin.loader,
-                  'css-loader',
-                  'sass-loader',
+                    // fallback to style-loader in development
+                    //   process.env.NODE_ENV !== 'production'
+                    //     ? 'style-loader'
+                    //     : MiniCssExtractPlugin.loader,
+                    // MiniCssExtractPlugin.loader,
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
                 ],
             },
             {
