@@ -1,9 +1,19 @@
-.test{
-    .test1{
-        width: 20px;
-    }
+.insf__container{
+    // overwrite everything; push whole website down after load this.
+    // padding-top: 100px;
+    height: 100px;
+    overflow: auto;
 }
 
 body{
-    background-color: gray;
+    background: gray;
+}
+
+.insf__story-group{
+    //
+}
+
+.insf__story-group-image{
+    width: 50px;
+    height: 50px;
 }

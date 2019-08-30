@@ -6,8 +6,20 @@
 
 // document.head.appendChild(my_awesome_script);
 
+
+
+import $ from 'jquery';
 import '../scss/index.scss';
 
-import './test1';
+// dummy data
+import storyGroupData from './data/store-group-data.js';
 
-console.log('hello world!');
+import mainHtml from '../template/index.handlebars';
+
+(function(){
+    if(window.innerWidth > 768){
+        return false;
+    }
+    
+    $('body').prepend(mainHtml(storyGroupData));
+})();

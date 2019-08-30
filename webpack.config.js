@@ -5,8 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
     mode: "development",
     entry: [
-        "./src/js/index.js",
-        "./src/scss/test.scss"
+        "./src/js/index.js"
     ],
     output: {
         path: path.resolve(__dirname, "public/js"),
@@ -36,6 +35,16 @@ module.exports = {
                   'sass-loader',
                 ],
             },
+            {
+                test: /\.handlebars$/,
+                loader: 'handlebars-loader',
+                options: {
+                    runtime: path.resolve(__dirname, 'src/js/handlebars-helpers.js'),
+                    precompileOptions: {
+                        knownHelpersOnly: false,
+                    },
+                }
+            },
         ]
     },
     plugins: [
@@ -52,5 +61,12 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css',
           }),
-    ]
+    ],
+    resolve: {
+        alias: {
+            handlebars: path.resolve(__dirname, 'node_modules/handlebars'),
+            'fs': path.resolve(__dirname, 'node_modules/file-system/file-system.js'),
+            'readline': path.resolve(__dirname, 'node_modules/log-utils/index.js'),
+        },
+    },
 };
