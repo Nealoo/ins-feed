@@ -1,3 +1,10 @@
+.has-active-modal {
+    overflow: hidden;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
 .insf__container{
     // overwrite everything; push whole website down after load this.
     // padding-top: 100px;

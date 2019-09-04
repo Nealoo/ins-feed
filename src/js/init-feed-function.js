@@ -110,12 +110,21 @@ class initFeedFunction {
 
     showSliderWrapper() {
         $('.insf__story-content-container').fadeIn();//addClass('active');
-        $('body').css('overflow', 'hidden');
+        
+
+        $('body').attr('data-original-height',$('body').scrollTop());
+        $('html').attr('data-original-height',$('html').scrollTop());
+        $('body').css('top', `${ 0 - ($('body').scrollTop() > 0 ? $('body').scrollTop() : $('html').scrollTop()) }px`);
+        $('body').addClass('has-active-modal');
     }
 
     hideSliderWrapper() {
         $('.insf__story-content-container').fadeOut();//removeClass('active');
-        $('body').css('overflow', 'auto');
+        
+        $('body').removeClass('has-active-modal');
+        $('body').css('top', '0px');
+        $('body').scrollTop(parseInt($('body').attr('data-original-height')));
+        $('html').scrollTop(parseInt($('html').attr('data-original-height')));
     }
 }
 
