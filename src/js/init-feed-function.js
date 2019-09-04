@@ -49,15 +49,18 @@ class initFeedFunction {
         let yPosition = 0;
 
         innerSwiper.forEach(swiper => {
+            // console.log(swiper);
             swiper.on('touchStart', function(e){
+                // console.log(e);
                 // console.log('start: '+ e.changedTouches[0].screenY);
-                yPosition = e.changedTouches[0].screenY;
+                e.changedTouches &&
+                (yPosition = e.changedTouches[0].screenY);
             });
             swiper.on('touchEnd', function(e){
                 // console.log('end: '+ e.changedTouches[0].screenY);
 
-                if(yPosition - e.changedTouches[0].screenY > 150){
-                    console.log('move up');
+                if(e.changedTouches && (yPosition - e.changedTouches[0].screenY > 150) ){
+                    // console.log('move up');
                     self.hideSliderWrapper();
                 }
             });
@@ -106,12 +109,12 @@ class initFeedFunction {
     }
 
     showSliderWrapper() {
-        $('.insf__story-content-container').addClass('active');
+        $('.insf__story-content-container').fadeIn();//addClass('active');
         $('body').css('overflow', 'hidden');
     }
 
     hideSliderWrapper() {
-        $('.insf__story-content-container').removeClass('active');
+        $('.insf__story-content-container').fadeOut();//removeClass('active');
         $('body').css('overflow', 'auto');
     }
 }
