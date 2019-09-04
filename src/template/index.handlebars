@@ -2,7 +2,46 @@
 
     {{#each storyGroup}}
         <div class="insf__story-group">
-            <img class="insf__story-group-image" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
+            <img class="insf__story-group-image js-story-thumbnail" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
         </div>
     {{/each}}
+    
+</div>
+
+<div class="insf__story-content-container">
+    <div class="swiper-wrapper">
+        {{#each storyGroup}}
+
+            {{#if storyList}}
+                <div class="insf__story-content js-story-content swiper-slide">
+
+                    <div class="insf__story-content-title-section">
+                        <img class="insf__story-content-title-image" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
+                        <div class="insf__story-content-title">{{thumbnail.title}}</div>
+                        <div class="insf__story-content-title-close js-story-close">X</div>
+                    </div>
+                    
+                    <div class="insf__story-content-bottom-section swiper-wrapper">
+                        <div class="swiper-pagination"></div>
+                        {{#each storyList}}
+                            <div class="insf__story-content-item swiper-slide">
+                                {{#is type 'image'}}
+                                    <img class="insf__story-content-item-image" src="{{src}}">
+                                {{else}}
+                                    {{src}}
+                                {{/is}}
+
+                                {{#if link}}
+                                    <div class="insf__story-content-item-link" href="{{link}}"></div>
+                                {{/if}}
+                            </div>
+                        {{/each}}
+                    </div>
+                    
+                </div>
+            {{/if}}
+            
+        {{/each}}
+    </div>
+    
 </div>

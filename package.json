@@ -7,7 +7,9 @@
     "file-system": "^2.2.2",
     "handlebars": "^4.1.2",
     "handlebars-helpers": "^0.10.0",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^4.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

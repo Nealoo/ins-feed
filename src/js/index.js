@@ -13,6 +13,8 @@ import '../scss/index.scss';
 
 // dummy data
 import storyGroupDataFactory from './data/store-group-data.js';
+// bind functions
+import initFeedFunction from './init-feed-function.js'
 
 import mainHtml from '../template/index.handlebars';
 
@@ -28,4 +30,8 @@ import mainHtml from '../template/index.handlebars';
     }
 
     $('body').prepend(mainHtml(storyGroupDataFactory(path)));
+
+    const feedFunction = new initFeedFunction();
+
+    feedFunction.init();
 })();
