@@ -107,10 +107,12 @@ class initFeedFunction {
 
     showSliderWrapper() {
         $('.insf__story-content-container').addClass('active');
+        $('body').css('overflow', 'hidden');
     }
 
     hideSliderWrapper() {
         $('.insf__story-content-container').removeClass('active');
+        $('body').css('overflow', 'auto');
     }
 }
 
