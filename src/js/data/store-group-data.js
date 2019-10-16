@@ -20,19 +20,51 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/story_image_group_1_1.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
+                        link:'https://www.moustacherepublic.com/about-us/',
+                        text: [
+                            {
+                                colour: 'aqua',
+                                backgroundColour: 'black',
+                                fontSize: '48px',
+                                text: 'test',
+                                width: '80%',
+                                link: 'https://www.moustacherepublic.com/',
+                                top: 'calc(10vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/story_image_group_1_2.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
+                        link:'https://www.moustacherepublic.com/about-us/',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'red',
+                                fontSize: '48px',
+                                text: 'test',
+                                width: '40%',
+                                link: 'https://www.moustacherepublic.com/',
+                                top: 'calc(40vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/story_image_group_1_3.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
+                        link:'https://www.moustacherepublic.com/about-us/',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'black',
+                                fontSize: '48px',
+                                text: 'test',
+                                link: 'https://www.moustacherepublic.com/',
+                                top: 'calc(70vh + 65px)'
+                            }
+                        ]
                     },
                 ]
             },
@@ -51,19 +83,48 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/story_image_group_2_1.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
+                        link:'https://www.moustacherepublic.com/about-us/',
+                        text: [
+                            {
+                                colour: '#ffd4f7',
+                                backgroundColour: 'rgba(0,0,0,0.7)',
+                                fontSize: '80px',
+                                text: 'pink text',
+                                link: '',
+                                position: 'middle'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/story_image_group_2_2.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
+                        link:'https://www.moustacherepublic.com/about-us/',
+                        text: [
+                            {
+                                colour: '#d4dcff',
+                                backgroundColour: 'rgba(0,0,0,0.7)',
+                                fontSize: '24px',
+                                text: 'blue text',
+                                link: '',
+                                position: 'middle'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/story_image_group_2_3.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
+                        link:'https://www.moustacherepublic.com/about-us/',
+                        text: [
+                            {
+                                colour: '#fff',
+                                fontSize: '48px',
+                                text: 'white text no background',
+                                link: '',
+                                position: 'middle'
+                            }
+                        ]
                     },
                 ]
             },

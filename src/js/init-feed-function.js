@@ -127,7 +127,8 @@ class initFeedFunction {
         const containsVimeo = !!$vimeo.length;
 
         if (containsYoutube) {
-            $youtube[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
+            $youtube[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            $youtube[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
             this.youtubePlaying = $youtube[0];
         } else if (containsVimeo) {
             const vimeoId = $vimeo.attr('id');

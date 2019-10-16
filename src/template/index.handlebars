@@ -39,14 +39,23 @@
                                 {{#is type 'image'}}
                                     <img class="insf__story-content-item-image" src="{{src}}">
                                 {{else is type 'youtube'}}
-                                    <iframe class="insf__story-content-youtube" src="{{src}}?autoplay=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe class="insf__story-content-youtube" src="{{src}}?autoplay=1&enablejsapi=1&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 {{else is type 'vimeo'}}
                                     {{!-- <iframe class="insf__story-content-vimeo" src="{{src}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> --}}
                                     <div class="insf__story-content-vimeo" data-vimeo-url="{{src}}" id="vimeo-{{@../index}}-{{@index}}"></div>
                                 {{else}}
                                     {{src}}
                                 {{/is}}
-
+                                {{#if text}}
+                                    {{#each text}}
+                                        <div class="insf__story-content-item-text-container"
+                                            style="{{#if top}} top: {{top}};{{/if}}{{#if bottom}} bottom: {{bottom}};{{/if}}">
+                                            <{{#if link}}a href="{{link}}"{{else}}div{{/if}} class="insf__story-content-item-text" 
+                                                style="{{#if colour}} color: {{colour}};{{/if}}{{#if backgroundColour}} background-color: {{backgroundColour}};{{/if}}{{#if fontSize}} font-size: {{fontSize}};{{/if}}{{#if button.width}} width: calc({{button.width}} - 32px);{{/if}}"
+                                                >{{text}}</{{#if link}}a{{else}}div{{/if}}>
+                                        </div>
+                                    {{/each}}
+                                {{/if}}
                                 {{#if link}}
                                     <div class="insf__story-content-item-link" href="{{link}}"></div>
                                 {{/if}}
