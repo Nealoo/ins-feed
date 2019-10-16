@@ -98,6 +98,28 @@
             font-family: sans-serif;
         }
 
+        &-title-progress-container {
+            position: absolute;
+            width: calc(100% - 30px);
+            top: 60px;
+            height: 3px;
+            display: flex;
+        }
+
+        &-title-progress-section {
+            width: 100%;
+            height: 3px;
+            background-color: #c2c2c2;
+
+            &:nth-child(n+2) {
+                margin-left: 6px;
+            }
+
+            &--viewed {
+                background-color: #fff;
+            }
+        }
+
         &-item {
 
         }

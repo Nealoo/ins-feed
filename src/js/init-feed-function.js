@@ -107,6 +107,19 @@ class initFeedFunction {
           $('.insf__story-content-container').addClass('insf__inited');
     }
 
+    setProgressBar(outerIndex, innerIndex) {
+        const $outer = $(`.insf__story-content:nth-child(${ outerIndex + 1 })`);
+        console.log(`.insf__story-content:nth-child(${ outerIndex })`, $outer);
+        console.log($outer.find('.insf__story-content-title-progress-section'));
+        $outer.find('.insf__story-content-title-progress-section').each((index, ele) => {
+            if (innerIndex > index) {
+                $(ele).addClass('insf__story-content-title-progress-section--viewed');
+            } else {
+                $(ele).removeClass('insf__story-content-title-progress-section--viewed');
+            }
+        });
+    }
+
     automaticallyPlayVideos() {
         const $youtube = $('.swiper-slide-active .swiper-slide-active .insf__story-content-youtube');
         const $vimeo = $('.swiper-slide-active .swiper-slide-active .insf__story-content-vimeo')
@@ -135,12 +148,14 @@ class initFeedFunction {
     }
 
     swipeEventHandler(depth, direction) {
+        const outerIndex = $('.insf__story-content.swiper-slide-active').index();
+        const innerIndex = $('.swiper-slide-active .swiper-slide-active').index();
 
         this.pausePlayingVideos();
         this.automaticallyPlayVideos();
+        this.setProgressBar(outerIndex, innerIndex);
 
         if (depth === 'outer') {
-            const outerIndex = $('.insf__story-content.swiper-slide-active').index();
             $(`.insf__story-group:nth-child(${ outerIndex + 1 })`).addClass('insf__story-group--viewed');
             if (direction === 'next') {
                 
@@ -179,15 +194,18 @@ class initFeedFunction {
         const self = this;
 
         $('.js-story-thumbnail').on('click', function() {
-            const thisIndex = $(this).parent().index();
+            const outerIndex = $(this).parent().index();
             $(this).parent().addClass('insf__story-group--viewed');
 
             self.showSliderWrapper();
             self.initSwiper();
 
-            self.outerSwiper.slideTo(thisIndex);
-            self.innerSwiper[thisIndex].slideTo(0);
+            self.outerSwiper.slideTo(outerIndex);
+            self.innerSwiper[outerIndex].slideTo(0);
             self.automaticallyPlayVideos();
+            self.setProgressBar(outerIndex, 1);
+
+
 
             // $('.insf__story-content').removeClass('active');
             

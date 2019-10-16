@@ -25,6 +25,11 @@
                         <img class="insf__story-content-title-image" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
                         <div class="insf__story-content-title">{{title}}</div>
                         <div class="insf__story-content-title-close js-story-close">X</div>
+                        <div class="insf__story-content-title-progress-container">
+                            {{#each storyList}}
+                                <div class="insf__story-content-title-progress-section"></div>
+                            {{/each}}
+                        </div>
                     </div>
                     
                     <div class="insf__story-content-bottom-section swiper-wrapper">
