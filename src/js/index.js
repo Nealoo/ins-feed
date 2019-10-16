@@ -2,7 +2,7 @@
 
 // var my_awesome_script = document.createElement('script');
 
-// my_awesome_script.setAttribute('src','https://nealoo.github.io/ins-feed/public/js/bundle.js');
+// my_awesome_script.setAttribute('src', 'https://nealoo.github.io/ins-feed/public/js/bundle.js');
 
 // document.head.appendChild(my_awesome_script);
 
@@ -18,7 +18,7 @@ import initFeedFunction from './init-feed-function.js'
 
 import mainHtml from '../template/index.handlebars';
 
-(function(){
+const initMRMobileFeed = (selector = 'body', position = 'top') => {
     if(window.innerWidth > 768){
         return false;
     }
@@ -29,9 +29,15 @@ import mainHtml from '../template/index.handlebars';
         path = 'http://localhost:3000';
     }
 
-    $('body').prepend(mainHtml(storyGroupDataFactory(path)));
+    if (position === 'top') {
+        $(selector).prepend(mainHtml(storyGroupDataFactory(path)));
+    } else {
+        $(selector).append(mainHtml(storyGroupDataFactory(path)));
+    }
 
     const feedFunction = new initFeedFunction();
 
     feedFunction.init();
-})();
+};
+
+// initMRMobileFeed(selector, position);

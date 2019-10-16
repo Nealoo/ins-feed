@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@vimeo/player": "^2.10.0",
     "file-system": "^2.2.2",
     "handlebars": "^4.1.2",
     "handlebars-helpers": "^0.10.0",

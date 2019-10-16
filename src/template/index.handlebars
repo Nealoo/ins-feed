@@ -1,7 +1,13 @@
 <div class="insf__container">
 
     {{#each storyGroup}}
-        <div class="insf__story-group">
+        <div class="insf__story-group"
+            {{#if border}}{{#if border.gradient}}
+                    style="border-image: linear-gradient(to bottom right, {{ border.colour1 }}, {{ border.colour2}});"
+                {{else}}
+                    style="border-color: {{ border.colour }};"
+            {{/if}}{{/if}}
+            >
             <img class="insf__story-group-image js-story-thumbnail" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
         </div>
     {{/each}}
@@ -27,6 +33,11 @@
                             <div class="insf__story-content-item swiper-slide">
                                 {{#is type 'image'}}
                                     <img class="insf__story-content-item-image" src="{{src}}">
+                                {{else is type 'youtube'}}
+                                    <iframe class="insf__story-content-youtube" src="{{src}}?autoplay=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                {{else is type 'vimeo'}}
+                                    {{!-- <iframe class="insf__story-content-vimeo" src="{{src}}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> --}}
+                                    <div class="insf__story-content-vimeo" data-vimeo-url="{{src}}" id="vimeo-{{@../index}}-{{@index}}"></div>
                                 {{else}}
                                     {{src}}
                                 {{/is}}
