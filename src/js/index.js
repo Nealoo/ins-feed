@@ -35,3 +35,4 @@ import mainHtml from '../template/index.handlebars';
 
     feedFunction.init();
 })();
+

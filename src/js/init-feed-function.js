@@ -24,11 +24,16 @@ class initFeedFunction {
     initVimeo(){
         const selector = '.insf__story-content-vimeo';
         const options = {
-            controls: false
+            controls: false,
+            title: false,
+            transparent: false
         }
         $(selector).each((index, ele) => {
             const elementId = $(ele).attr('id');
             this.vimeoVids[elementId] = new Player(elementId, options);
+            this.vimeoVids[elementId].on('ended', () => {
+                this.swipeToNext();
+            })
         });
     }
 
@@ -74,7 +79,7 @@ class initFeedFunction {
                     this.swipeEventHandler('inner', 'next');
                 }
             },
-          });
+        });
 
         // console.log(innerSwiper, outerSwiper);
 
@@ -96,7 +101,6 @@ class initFeedFunction {
                 if(e.changedTouches && (yPosition - e.changedTouches[0].screenY > 50) ){
                     // console.log('move up');
                     self.hideSliderWrapper();
-                    self.pausePlayingVideos();
                 }
             });
         });
@@ -107,10 +111,19 @@ class initFeedFunction {
           $('.insf__story-content-container').addClass('insf__inited');
     }
 
+    swipeToNext() {
+        const innerIndex = $('.swiper-slide-active .swiper-slide-active').index();
+        if (!this.innerSwiper[innerIndex + 1].isEnd) {
+            this.innerSwiper[innerIndex + 1].slideNext();
+        } else if (!this.outerSwiper.isEnd) {
+            this.outerSwiper.slideNext();
+        } else {
+            this.hideSliderWrapper();
+        }
+    }
+
     setProgressBar(outerIndex, innerIndex) {
         const $outer = $(`.insf__story-content:nth-child(${ outerIndex + 1 })`);
-        console.log(`.insf__story-content:nth-child(${ outerIndex })`, $outer);
-        console.log($outer.find('.insf__story-content-title-progress-section'));
         $outer.find('.insf__story-content-title-progress-section').each((index, ele) => {
             if (innerIndex > index) {
                 $(ele).addClass('insf__story-content-title-progress-section--viewed');
@@ -127,6 +140,7 @@ class initFeedFunction {
         const containsVimeo = !!$vimeo.length;
 
         if (containsYoutube) {
+            // we attempt to play the YouTube video twice incase it reached end of the video
             $youtube[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
             $youtube[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
             this.youtubePlaying = $youtube[0];
@@ -226,6 +240,7 @@ class initFeedFunction {
 
     hideSliderWrapper() {
         $('.insf__story-content-container').fadeOut();//removeClass('active');
+        this.pausePlayingVideos();
         
         $('body').removeClass('has-active-modal');
         $('body').css('top', '0px');
