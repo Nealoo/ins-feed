@@ -1,6 +1,8 @@
 
 function storyGroupData(path) {
     return {
+        selector: 'body',
+        position: 'top',
         storyGroup:
         [
             {

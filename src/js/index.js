@@ -1,11 +1,9 @@
 // test script 
 
 // var my_awesome_script = document.createElement('script');
-
 // my_awesome_script.setAttribute('src', 'https://nealoo.github.io/ins-feed/public/js/bundle.js');
-
 // document.head.appendChild(my_awesome_script);
-
+// initMRMobileFeed();
 
 
 import $ from 'jquery';
@@ -18,21 +16,21 @@ import initFeedFunction from './init-feed-function.js'
 
 import mainHtml from '../template/index.handlebars';
 
+
+let path = 'https://nealoo.github.io/ins-feed';
+if (location.host.includes('localhost')) path = 'http://localhost:3000';
+const config = storyGroupDataFactory(path);
+
 const initMRMobileFeed = (selector = 'body', position = 'top') => {
-    if(window.innerWidth > 768){
+
+    if(window.innerWidth > 768) {
         return false;
     }
 
-    let path = 'https://nealoo.github.io/ins-feed';
-
-    if(location.host.includes('localhost')){
-        path = 'http://localhost:3000';
-    }
-
     if (position === 'top') {
-        $(selector).prepend(mainHtml(storyGroupDataFactory(path)));
+        $(selector).prepend(mainHtml(config));
     } else {
-        $(selector).append(mainHtml(storyGroupDataFactory(path)));
+        $(selector).append(mainHtml(config));
     }
 
     const feedFunction = new initFeedFunction();
@@ -40,4 +38,4 @@ const initMRMobileFeed = (selector = 'body', position = 'top') => {
     feedFunction.init();
 };
 
-// initMRMobileFeed(selector, position);
+// initMRMobileFeed(config.selector, config.position);
