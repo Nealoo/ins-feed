@@ -3,7 +3,7 @@
 // var my_awesome_script = document.createElement('script');
 // my_awesome_script.setAttribute('src', 'https://nealoo.github.io/ins-feed/public/js/bundle.js');
 // document.head.appendChild(my_awesome_script);
-// initMRMobileFeed();
+// window.initMRMobileFeed();
 
 
 import $ from 'jquery';
@@ -21,7 +21,7 @@ let path = 'https://nealoo.github.io/ins-feed';
 if (location.host.includes('localhost')) path = 'http://localhost:3000';
 const config = storyGroupDataFactory(path);
 
-const initMRMobileFeed = (selector = 'body', position = 'top') => {
+window.initMRMobileFeed = (selector = 'body', position = 'top') => {
 
     if(window.innerWidth > 768) {
         return false;
@@ -38,4 +38,4 @@ const initMRMobileFeed = (selector = 'body', position = 'top') => {
     feedFunction.init();
 };
 
-// initMRMobileFeed(config.selector, config.position);
+// window.initMRMobileFeed(config.selector, config.position);
