@@ -1,8 +1,8 @@
 
 function storyGroupData(path) {
     return {
-        selector: '.home-about',
-        position: 'bottom',
+        selector: 'body',
+        position: 'top',
         storyGroup:
         [
             {

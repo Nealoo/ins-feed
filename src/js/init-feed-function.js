@@ -8,6 +8,8 @@ class initFeedFunction {
         //TODO
         this.vimeoVids = {};
         this.swiperProgress = {};
+        this.youtubePlaying = null;
+        this.vimeoPlaying = null;
     }
 
     init() {
@@ -94,6 +96,7 @@ class initFeedFunction {
                 if(e.changedTouches && (yPosition - e.changedTouches[0].screenY > 50) ){
                     // console.log('move up');
                     self.hideSliderWrapper();
+                    self.pausePlayingVideos();
                 }
             });
         });
@@ -104,26 +107,37 @@ class initFeedFunction {
           $('.insf__story-content-container').addClass('insf__inited');
     }
 
-    swipeEventHandler(depth, direction) {
-
+    automaticallyPlayVideos() {
         const $youtube = $('.swiper-slide-active .swiper-slide-active .insf__story-content-youtube');
         const $vimeo = $('.swiper-slide-active .swiper-slide-active .insf__story-content-vimeo')
         const containsYoutube = !!$youtube.length;
         const containsVimeo = !!$vimeo.length;
 
-        $('.insf__story-content-youtube').each((index, ele) => {
-            ele.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        })
-        $('.insf__story-content-vimeo').each((index, ele) => {
-            const vimeoId = $(ele).attr('id');
-            this.vimeoVids[vimeoId].pause();
-        });
         if (containsYoutube) {
             $youtube[0].contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*')
+            this.youtubePlaying = $youtube[0];
         } else if (containsVimeo) {
             const vimeoId = $vimeo.attr('id');
             this.vimeoVids[vimeoId].play();
+            this.vimeoPlaying = vimeoId;
         }
+    }
+
+    pausePlayingVideos() {
+        if (this.youtubePlaying) {
+            this.youtubePlaying.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            this.youtubePlaying = null;
+        }
+        if (this.vimeoPlaying) {
+            this.vimeoVids[this.vimeoPlaying].pause();
+            this.vimeoPlaying = null;
+        }
+    }
+
+    swipeEventHandler(depth, direction) {
+
+        this.pausePlayingVideos();
+        this.automaticallyPlayVideos();
 
         if (depth === 'outer') {
             const outerIndex = $('.insf__story-content.swiper-slide-active').index();
@@ -173,6 +187,7 @@ class initFeedFunction {
 
             self.outerSwiper.slideTo(thisIndex);
             self.innerSwiper[thisIndex].slideTo(0);
+            self.automaticallyPlayVideos();
 
             // $('.insf__story-content').removeClass('active');
             
