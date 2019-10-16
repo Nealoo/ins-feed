@@ -16,25 +16,22 @@ import initFeedFunction from './init-feed-function.js'
 import mainHtml from '../template/index.handlebars';
 
 
-let path = 'https://nealoo.github.io/ins-feed';
-if (location.host.includes('localhost')) path = 'http://localhost:3000';
-const config = storyGroupDataFactory(path);
-
-const initMRMobileFeed = (selector = 'body', position = 'top') => {
+(function (){
+    let path = 'https://nealoo.github.io/ins-feed';
+    if (location.host.includes('localhost')) path = 'http://localhost:3000';
+    const config = storyGroupDataFactory(path);
 
     if(window.innerWidth > 768) {
         return false;
     }
 
-    if (position === 'top') {
-        $(selector).prepend(mainHtml(config));
+    if (config.position === 'top') {
+        $(config.selector).prepend(mainHtml(config));
     } else {
-        $(selector).append(mainHtml(config));
+        $(config.selector).append(mainHtml(config));
     }
 
     const feedFunction = new initFeedFunction();
 
     feedFunction.init();
-};
-
-initMRMobileFeed(config.selector, config.position);
+})();
