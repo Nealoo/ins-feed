@@ -12,7 +12,7 @@ function storyGroupData(path) {
                 },
                 title: 'story group title1',
                 border: {
-                    gradient: false,
+                    solid: true,
                     colour: '#ffd4f7'
                 },
                 storyList: [
@@ -75,7 +75,7 @@ function storyGroupData(path) {
                 },
                 title: 'story group title2',
                 border: {
-                    gradient: false,
+                    solid: true,
                     colour: '#d4dcff'
                 },
                 storyList: [
@@ -135,10 +135,8 @@ function storyGroupData(path) {
                 },
                 title: 'story group title3',
                 border: {
-                    gradient: false,
-                    colour: '#b9f7b3',
-                    colour1: '#ffd4f7',
-                    colour2: '#d4dcff'
+                    solid: false,
+                    colour: '#b9f7b3'
                 },
                 storyList: [
                     {
@@ -168,7 +166,7 @@ function storyGroupData(path) {
                 },
                 title: 'video test',
                 border: {
-                    gradient: false,
+                    solid: false,
                     colour: '#ffe3ce'
                 },
                 storyList: [

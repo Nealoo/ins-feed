@@ -26,7 +26,8 @@ class initFeedFunction {
         const options = {
             controls: false,
             title: false,
-            transparent: false
+            transparent: false,
+            background: true
         }
         $(selector).each((index, ele) => {
             const elementId = $(ele).attr('id');
@@ -51,10 +52,16 @@ class initFeedFunction {
             // },
             on: {
                 slidePrevTransitionStart: () => {
-                    this.swipeEventHandler('outer', 'prev');
+                    this.swipeEventHandler('start', 'outer', 'prev');
+                },
+                slidePrevTransitionEnd: () => {
+                    this.swipeEventHandler('end', 'outer', 'prev');
                 },
                 slideNextTransitionStart: () => {
-                    this.swipeEventHandler('outer', 'next');
+                    this.swipeEventHandler('start', 'outer', 'next');
+                },
+                slideNextTransitionEnd: () => {
+                    this.swipeEventHandler('end', 'outer', 'next');
                 }
             },
         });
@@ -73,10 +80,16 @@ class initFeedFunction {
             // },
             on: {
                 slidePrevTransitionStart: () => {
-                    this.swipeEventHandler('inner', 'prev');
+                    this.swipeEventHandler('start', 'inner', 'prev');
+                },
+                slidePrevTransitionEnd: () => {
+                    this.swipeEventHandler('end', 'inner', 'prev');
                 },
                 slideNextTransitionStart: () => {
-                    this.swipeEventHandler('inner', 'next');
+                    this.swipeEventHandler('start', 'inner', 'next');
+                },
+                slideNextTransitionEnd: () => {
+                    this.swipeEventHandler('end', 'inner', 'next');
                 }
             },
         });
@@ -146,6 +159,8 @@ class initFeedFunction {
             this.youtubePlaying = $youtube[0];
         } else if (containsVimeo) {
             const vimeoId = $vimeo.attr('id');
+            $vimeo.click();
+            this.vimeoVids[vimeoId].setCurrentTime(0);
             this.vimeoVids[vimeoId].play();
             this.vimeoPlaying = vimeoId;
         }
@@ -153,7 +168,7 @@ class initFeedFunction {
 
     pausePlayingVideos() {
         if (this.youtubePlaying) {
-            this.youtubePlaying.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            this.youtubePlaying.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
             this.youtubePlaying = null;
         }
         if (this.vimeoPlaying) {
@@ -162,13 +177,15 @@ class initFeedFunction {
         }
     }
 
-    swipeEventHandler(depth, direction) {
+    swipeEventHandler(type, depth, direction) {
         const outerIndex = $('.insf__story-content.swiper-slide-active').index();
         const innerIndex = $('.swiper-slide-active .swiper-slide-active').index();
 
-        this.pausePlayingVideos();
-        this.automaticallyPlayVideos();
-        this.setProgressBar(outerIndex, innerIndex);
+        if (type === 'start') {
+            this.pausePlayingVideos();
+            this.automaticallyPlayVideos();
+            this.setProgressBar(outerIndex, innerIndex);
+        } 
 
         if (depth === 'outer') {
             $(`.insf__story-group:nth-child(${ outerIndex + 1 })`).addClass('insf__story-group--viewed');

@@ -21,12 +21,19 @@
 
     &-group {
         display: inline-block;
-        border: 2px black solid;
+        // border: 2px black solid;
         width: 62px;
         height: 62px;
-        padding: 4px;
+        padding: 3px;
         border-radius: 36px;
         box-sizing: border-box;
+
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffb450+25,ed005a+55,aa148c+85 */
+        background: #ffb450; /* Old browsers */
+        background: -moz-linear-gradient(45deg,  #ffb450 25%, #ed005a 55%, #aa148c 85%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg,  #ffb450 25%,#ed005a 55%,#aa148c 85%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg,  #ffb450 25%,#ed005a 55%,#aa148c 85%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb450', endColorstr='#aa148c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
         &:nth-child(n+2) {
             margin-left: 8px;
@@ -39,7 +46,9 @@
         &-image {
             width: 50px;
             height: 50px;
-            border-radius: 25px;
+            border-radius: 50%;
+            border: 3px white solid;
+            background-color: #fff;
         }
     }
 
