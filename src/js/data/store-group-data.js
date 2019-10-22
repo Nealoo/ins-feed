@@ -7,133 +7,107 @@ function storyGroupData(path) {
         [
             {
                 thumbnail: {
-                    src: path + '/src/img/thumbnail_mr_logo_group_1.jpg',
-                    title: 'mr_logo'
+                    src: path + '/src/img/thumbnail/afterpay.png',
+                    title: 'alt'
                 },
-                title: 'story group title1',
+                title: 'Afterpay',
                 border: {
-                    solid: true,
+                    solid: false,
                     colour: '#ffd4f7'
                 },
                 storyList: [
                     {
                         type: 'image',
-                        src: path + '/src/img/story_image_group_1_1.jpg',
+                        src: path + '/src/img/afterpay/1.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/',
-                        text: [
-                            {
-                                colour: 'aqua',
-                                backgroundColour: 'black',
-                                fontSize: '48px',
-                                text: 'test',
-                                width: '80%',
-                                link: 'https://www.moustacherepublic.com/',
-                                top: 'calc(10vh + 65px)'
-                            }
-                        ]
-                    },
-                    {
-                        type: 'image',
-                        src: path + '/src/img/story_image_group_1_2.jpg',
-                        title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/',
-                        text: [
-                            {
-                                colour: 'white',
-                                backgroundColour: 'red',
-                                fontSize: '48px',
-                                text: 'test',
-                                width: '40%',
-                                link: 'https://www.moustacherepublic.com/',
-                                top: 'calc(40vh + 65px)'
-                            }
-                        ]
-                    },
-                    {
-                        type: 'image',
-                        src: path + '/src/img/story_image_group_1_3.jpg',
-                        title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/',
-                        text: [
-                            {
-                                colour: 'white',
-                                backgroundColour: 'black',
-                                fontSize: '48px',
-                                text: 'test',
-                                link: 'https://www.moustacherepublic.com/',
-                                top: 'calc(70vh + 65px)'
-                            }
-                        ]
-                    },
+                        // text: [
+                        //     {
+                        //         colour: 'aqua',
+                        //         backgroundColour: 'black',
+                        //         fontSize: '48px',
+                        //         text: 'test',
+                        //         width: '80%',
+                        //         link: 'https://www.moustacherepublic.com/',
+                        //         top: 'calc(10vh + 65px)'
+                        //     }
+                        // ]
+                    }
                 ]
             },
             {
                 thumbnail: {
-                    src: path + '/src/img/thumbnail_mr_logo_group_2.jpg',
-                    title: 'mr_logo'
+                    src: path + '/src/img/thumbnail/2.png',
+                    title: 'alt'
                 },
-                title: 'story group title2',
+                title: 'Amber Sceats',
                 border: {
-                    solid: true,
+                    solid: false,
                     colour: '#d4dcff'
                 },
                 storyList: [
                     {
                         type: 'image',
-                        src: path + '/src/img/story_image_group_2_1.jpg',
+                        src: path + '/src/img/amber-sceats/1.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/',
-                        text: [
-                            {
-                                colour: '#ffd4f7',
-                                backgroundColour: 'rgba(0,0,0,0.7)',
-                                fontSize: '80px',
-                                text: 'pink text',
-                                link: '',
-                                position: 'middle'
-                            }
-                        ]
+                        // text: [
+                        //     {
+                        //         colour: '#ffd4f7',
+                        //         backgroundColour: 'rgba(0,0,0,0.7)',
+                        //         fontSize: '80px',
+                        //         text: 'pink text',
+                        //         link: '',
+                        //         position: 'middle'
+                        //     }
+                        // ]
+                    },
+                    {
+                        type: 'video',
+                        src: path + '/src/img/amber-sceats/1.mov',
+                        title: 'image title'
                     },
                     {
                         type: 'image',
-                        src: path + '/src/img/story_image_group_2_2.jpg',
+                        src: path + '/src/img/amber-sceats/2.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/',
-                        text: [
-                            {
-                                colour: '#d4dcff',
-                                backgroundColour: 'rgba(0,0,0,0.7)',
-                                fontSize: '24px',
-                                text: 'blue text',
-                                link: '',
-                                position: 'middle'
-                            }
-                        ]
                     },
                     {
                         type: 'image',
-                        src: path + '/src/img/story_image_group_2_3.jpg',
+                        src: path + '/src/img/amber-sceats/3.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/',
-                        text: [
-                            {
-                                colour: '#fff',
-                                fontSize: '48px',
-                                text: 'white text no background',
-                                link: '',
-                                position: 'middle'
-                            }
-                        ]
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/amber-sceats/4.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/amber-sceats/5.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/amber-sceats/6.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/amber-sceats/7.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/amber-sceats/8.jpg',
+                        title: 'image title',
                     },
                 ]
             },
             {
                 thumbnail: {
-                    src: path + '/src/img/thumbnail_mr_logo_group_3.jpg',
-                    title: 'mr_logo'
+                    src: path + '/src/img/thumbnail/3.png',
+                    title: 'alt'
                 },
-                title: 'story group title3',
+                title: 'Bianc',
                 border: {
                     solid: false,
                     colour: '#b9f7b3'
@@ -141,45 +115,230 @@ function storyGroupData(path) {
                 storyList: [
                     {
                         type: 'image',
-                        src: path + '/src/img/story_image_group_3_1.jpg',
+                        src: path + '/src/img/bianc/1.jpg',
                         title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
-                    },
-                    {
-                        type: 'image',
-                        src: path + '/src/img/story_image_group_3_2.jpg',
-                        title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
-                    },
-                    {
-                        type: 'image',
-                        src: path + '/src/img/story_image_group_3_3.jpg',
-                        title: 'image title',
-                        link:'https://www.moustacherepublic.com/about-us/'
                     },
                 ]
             },
             {
                 thumbnail: {
-                    src: path + '/src/img/thumbnail_mr_logo_group_3.jpg',
-                    title: 'mr_logo'
+                    src: path + '/src/img/thumbnail/4.png',
+                    title: 'alt'
                 },
-                title: 'video test',
+                title: 'Daniel Wellington',
                 border: {
                     solid: false,
-                    colour: '#ffe3ce'
+                    colour: '#b9f7b3'
                 },
                 storyList: [
                     {
-                        type: 'youtube',
-                        src: 'https://www.youtube.com/embed/LjVteVUi7dg'
+                        type: 'video',
+                        src: path + '/src/img/daniel-wellington/1.mov',
+                        title: 'video title',
                     },
                     {
-                        type: 'vimeo',
-                        src: 'https://player.vimeo.com/video/150301800'
-                    }
+                        type: 'video',
+                        src: path + '/src/img/daniel-wellington/2.mov',
+                        title: 'video title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/3.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/4.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/5.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/6.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/7.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/8.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/8.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/10.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/daniel-wellington/11.jpg',
+                        title: 'image title',
+                    },
                 ]
-            }
+            },
+            {
+                thumbnail: {
+                    src: path + '/src/img/thumbnail/5.png',
+                    title: 'alt'
+                },
+                title: 'For Him',
+                border: {
+                    solid: false,
+                    colour: '#b9f7b3'
+                },
+                storyList: [
+                    {
+                        type: 'image',
+                        src: path + '/src/img/for-him/1.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/for-him/2.jpg',
+                        title: 'image title',
+                    },
+                ]
+            },
+            {
+                thumbnail: {
+                    src: path + '/src/img/thumbnail/6.png',
+                    title: 'alt'
+                },
+                title: 'Happy Customers',
+                border: {
+                    solid: false,
+                    colour: '#b9f7b3'
+                },
+                storyList: [
+                    {
+                        type: 'image',
+                        src: path + '/src/img/happy-customers/1.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'video',
+                        src: path + '/src/img/happy-customers/1.mov',
+                        title: 'video title',
+                    },
+                ]
+            },
+            {
+                thumbnail: {
+                    src: path + '/src/img/thumbnail/7.png',
+                    title: 'alt'
+                },
+                title: 'ICE Exclusives',
+                border: {
+                    solid: false,
+                    colour: '#b9f7b3'
+                },
+                storyList: [
+                    {
+                        type: 'image',
+                        src: path + '/src/img/ice-exclusives/1.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/ice-exclusives/2.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/ice-exclusives/3.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/ice-exclusives/4.jpg',
+                        title: 'image title',
+                    },
+                ]
+            },
+            {
+                thumbnail: {
+                    src: path + '/src/img/thumbnail/8.png',
+                    title: 'alt'
+                },
+                title: 'Michael Kors',
+                border: {
+                    solid: false,
+                    colour: '#b9f7b3'
+                },
+                storyList: [
+                    {
+                        type: 'image',
+                        src: path + '/src/img/michael-kors/1.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/michael-kors/2.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/michael-kors/3.jpg',
+                        title: 'image title',
+                    },
+                ]
+            },
+            {
+                thumbnail: {
+                    src: path + '/src/img/thumbnail/9.png',
+                    title: 'alt'
+                },
+                title: 'Personalised',
+                border: {
+                    solid: false,
+                    colour: '#b9f7b3'
+                },
+                storyList: [
+                    {
+                        type: 'image',
+                        src: path + '/src/img/personalised/1.jpg',
+                        title: 'image title',
+                    },
+                    {
+                        type: 'image',
+                        src: path + '/src/img/personalised/2.jpg',
+                        title: 'image title',
+                    },
+                ]
+            },
+            // {
+            //     thumbnail: {
+            //         src: path + '/src/img/thumbnail_mr_logo_group_3.jpg',
+            //         title: 'mr_logo'
+            //     },
+            //     title: 'video test',
+            //     border: {
+            //         solid: false,
+            //         colour: '#ffe3ce'
+            //     },
+            //     storyList: [
+            //         {
+            //             type: 'youtube',
+            //             src: 'https://www.youtube.com/embed/LjVteVUi7dg'
+            //         },
+            //         {
+            //             type: 'vimeo',
+            //             src: 'https://player.vimeo.com/video/150301800'
+            //         }
+            //     ]
+            // }
         ]
     };
 }
