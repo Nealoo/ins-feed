@@ -195,10 +195,14 @@ class initFeedFunction {
     setProgressBar(outerIndex, innerIndex) {
         const $outer = $(`.insf__story-content:nth-child(${ outerIndex + 1 })`);
         $outer.find('.insf__story-content-title-progress-section').each((index, ele) => {
-            if (innerIndex > index) {
+            $(ele).removeClass('insf__story-content-title-progress-section--current');
+            if (innerIndex > index + 1) {
                 $(ele).addClass('insf__story-content-title-progress-section--viewed');
             } else {
                 $(ele).removeClass('insf__story-content-title-progress-section--viewed');
+                if (innerIndex === index + 1) {
+                    $(ele).addClass('insf__story-content-title-progress-section--current');
+                } 
             }
         });
     }
