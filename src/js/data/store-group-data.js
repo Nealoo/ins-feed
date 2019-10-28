@@ -130,7 +130,7 @@ function storyGroupData(path) {
                                 text: 'Learn More',
                                 fontSize: '32px',
                                 fontFamily: 'Sans-serif',
-                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats/hoop-earrings',
                                 top: 'calc(75vh + 65px)'
                             }
                         ]
@@ -146,7 +146,7 @@ function storyGroupData(path) {
                                 text: 'Learn More',
                                 fontSize: '32px',
                                 fontFamily: 'Sans-serif',
-                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats/initials',
                                 top: 'calc(75vh + 65px)'
                             }
                         ]
@@ -162,7 +162,7 @@ function storyGroupData(path) {
                                 text: 'Learn More',
                                 fontSize: '32px',
                                 fontFamily: 'Sans-serif',
-                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats/drop-earrings',
                                 top: 'calc(75vh + 65px)'
                             }
                         ]
@@ -178,7 +178,7 @@ function storyGroupData(path) {
                                 text: 'Learn More',
                                 fontSize: '32px',
                                 fontFamily: 'Sans-serif',
-                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                link: 'https://www.iceonline.com.au/amber-sceats-emery-earrings',
                                 top: 'calc(75vh + 65px)'
                             }
                         ]
@@ -187,17 +187,6 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/8.jpg',
                         title: 'image title',
-                        text: [
-                            {
-                                colour: 'white',
-                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
-                                text: 'Learn More',
-                                fontSize: '32px',
-                                fontFamily: 'Sans-serif',
-                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
-                                top: 'calc(75vh + 65px)'
-                            }
-                        ]
                     },
                 ]
             },
