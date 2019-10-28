@@ -3,8 +3,9 @@
     {{#each storyGroup}}
         <div class="insf__story-group"
             {{#if border}}{{#if border.solid}}
-                    style="background: {{ border.colour }};"
+                style="background: {{ border.colour }};"
             {{/if}}{{/if}}
+            data-swiper-slides="{{storyList.length}}"
             >
             <img class="insf__story-group-image js-story-thumbnail" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
             <h2 class="insf__story-group-name">{{title}}</h2>
@@ -55,7 +56,7 @@
                                         <div class="insf__story-content-item-text-container"
                                             style="{{#if top}} top: {{top}};{{/if}}{{#if bottom}} bottom: {{bottom}};{{/if}}">
                                             <{{#if link}}a href="{{link}}"{{else}}div{{/if}} class="insf__story-content-item-text" 
-                                                style="{{#if colour}} color: {{colour}};{{/if}}{{#if backgroundColour}} background-color: {{backgroundColour}};{{/if}}{{#if fontSize}} font-size: {{fontSize}};{{/if}}{{#if button.width}} width: calc({{button.width}} - 32px);{{/if}}"
+                                                style="{{#if colour}} color: {{colour}};{{/if}}{{#if backgroundColour}} background-color: {{backgroundColour}};{{/if}}{{#if fontSize}} font-size: {{fontSize}};{{/if}}{{#if fontFamily}} font-family: {{fontFamily}};{{/if}}{{#if button.width}} width: calc({{button.width}} - 32px);{{/if}}"
                                                 >{{text}}</{{#if link}}a{{else}}div{{/if}}>
                                         </div>
                                     {{/each}}

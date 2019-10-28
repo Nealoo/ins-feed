@@ -59,56 +59,145 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/1.jpg',
                         title: 'image title',
-                        // text: [
-                        //     {
-                        //         colour: '#ffd4f7',
-                        //         backgroundColour: 'rgba(0,0,0,0.7)',
-                        //         fontSize: '80px',
-                        //         text: 'pink text',
-                        //         link: '',
-                        //         position: 'middle'
-                        //     }
-                        // ]
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'video',
                         src: path + '/src/img/amber-sceats/1.mov',
-                        title: 'image title'
+                        title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats/horoscope',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/2.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats/rings',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/3.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/4.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/5.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/6.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/7.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/amber-sceats/8.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/brand/amber-sceats',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                 ]
             },
@@ -127,6 +216,17 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/bianc/1.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/bianc-amelia-earrings',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                 ]
             },
@@ -213,11 +313,33 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/for-him/1.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/michael-kors-watches-prd-mk5550',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/for-him/2.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/watches-armani-prd-ar1737',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                 ]
             },
@@ -292,16 +414,49 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/michael-kors/1.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/michael-kors-prd-mk5128',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/michael-kors/2.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/watches-michael-kors-prd-mk3192',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                     {
                         type: 'image',
                         src: path + '/src/img/michael-kors/3.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: 'white',
+                                backgroundColour: 'rgba(50, 50, 50, 0.7)',
+                                text: 'Learn More',
+                                fontSize: '32px',
+                                fontFamily: 'Sans-serif',
+                                link: 'https://www.iceonline.com.au/watches-michael-kors-prd-mk6096',
+                                top: 'calc(75vh + 65px)'
+                            }
+                        ]
                     },
                 ]
             },
