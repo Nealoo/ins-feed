@@ -6,15 +6,23 @@
 }
 
 .insf__container{
+    * {
+        margin: 0;
+        padding: 0;
+    }
     // overwrite everything; push whole website down after load this.
     // padding-top: 100px;
-    height: 82px;
+    height: 86px;
+    height: 100px;
     width: 100%;
     overflow: auto;
+    overflow-y: hidden;
     font-family: sans-serif;
     padding: 10px;
+    /* padding-bottom: 16px; */
     box-sizing: border-box;
     white-space: nowrap;
+    border-bottom: 1px solid rgba(50, 50, 50, 0.4);
 }
 
 .insf__story {
@@ -40,7 +48,7 @@
         }
     
         &--viewed {
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
         &-image {
@@ -50,6 +58,17 @@
             border-radius: 50%;
             border: 3px white solid;
             background-color: #fff;
+        }
+
+        &-name {
+            font-size: 12px;
+            text-align: center;
+            font-weight: 100;
+            margin-top: 4px;
+            max-width: 62px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
     }
 
@@ -76,18 +95,21 @@
             display: inline-block;
             line-height: 35px;
             vertical-align: bottom;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             padding-left: 5px;
             font-family: sans-serif;
             color: #fff;
             text-shadow: 0px 0px 5px #000;
+            text-shadow: 0px 0px 5px rgba(50, 50, 50, 0.6);
+            font-size: 12px;
         }
 
         &-title-section {
             position: absolute;
             top: 0;
             left: 0;
-            padding: 15px;
+            padding: 10px;
+            padding-top: 18px;
             width: 100%;
             box-sizing: border-box;
             z-index: 10;
@@ -99,6 +121,7 @@
             width: 30px;
             height: 30px;
             border-radius: 15px;
+            margin-left: 4px;
         }
 
         &-title-close {
@@ -107,20 +130,35 @@
             vertical-align: bottom;
             float: right;
             font-family: sans-serif;
+            font-weight: 100;
+            color: #fff;
         }
 
         &-title-progress-container {
             position: absolute;
-            width: calc(100% - 30px);
-            top: 60px;
-            height: 3px;
+            width: calc(100% - 20px);
+            top: 10px;
+            height: 2px;
             display: flex;
         }
 
         &-title-progress-section {
             width: 100%;
-            height: 3px;
+            height: 2px;
             background-color: #c2c2c2;
+            border-radius: 1px;
+
+            // &:first-child {
+            //     border-radius: 1px 0px 0px 1px;
+            // }
+
+            // &:last-child {
+            //     border-radius: 0px 1px 1px 0px;
+            // }
+
+            // &:first-child:last-child {
+            //     border-radius: 1px;
+            // }
 
             &:nth-child(n+2) {
                 margin-left: 6px;

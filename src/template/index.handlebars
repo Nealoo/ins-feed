@@ -7,6 +7,7 @@
             {{/if}}{{/if}}
             >
             <img class="insf__story-group-image js-story-thumbnail" src="{{thumbnail.src}}" alt="{{thumbnail.title}}" />
+            <h2 class="insf__story-group-name">{{title}}</h2>
         </div>
     {{/each}}
     
@@ -42,9 +43,9 @@
                                     {{!-- <iframe class="insf__story-content-vimeo" src="{{src}}"></iframe> --}}
                                     <div class="insf__story-content-vimeo" data-vimeo-url="{{src}}" id="vimeo-{{@../index}}-{{@index}}"></div>
                                 {{else is type 'video'}}
-                                    <video width="100%" height="100%" loop controls autoplay playsinline>
+                                    <video class="insf__story-content-video" width="100%" height="100%" loop controls autoplay playsinline>
                                         <source src="{{src}}" type="video/mp4">
-                                        please try to use Chrome to view this video content 
+                                        Please try to use Chrome to view this video content 
                                     </video>
                                 {{else}}
                                     {{src}}
