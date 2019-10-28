@@ -50,6 +50,15 @@ class initFeedFunction {
             //     el: '.swiper-pagination',
             //     type: 'progressbar',
             // },
+            // effect: 'cube',
+            // grabCursor: true,
+            // cubeEffect: {
+            //     shadow: true,
+            //     slideShadows: true,
+            //     shadowOffset: 20,
+            //     shadowScale: 0.94,
+            // },
+            allowTouchMove: false,
             on: {
                 slidePrevTransitionStart: () => {
                     this.swipeEventHandler('start', 'outer', 'prev');
@@ -78,6 +87,12 @@ class initFeedFunction {
             //     nextEl: '.swiper-button-next',
             //     prevEl: '.swiper-button-prev',
             // },
+            // autoplay: {
+            //     delay: 2500,
+            //     disableOnInteraction: false,
+            //     waitForTransition: true
+            // },
+            allowTouchMove: false,
             on: {
                 slidePrevTransitionStart: () => {
                     this.swipeEventHandler('start', 'inner', 'prev');
@@ -99,6 +114,7 @@ class initFeedFunction {
         const self = this;
 
         let yPosition = 0;
+        let xPosition = 0;
 
         innerSwiper.forEach(swiper => {
             // console.log(swiper);
@@ -107,15 +123,56 @@ class initFeedFunction {
                 // console.log('start: '+ e.changedTouches[0].screenY);
                 e.changedTouches &&
                 (yPosition = e.changedTouches[0].screenY);
+
+                e.changedTouches &&
+                (xPosition = e.changedTouches[0].pageX);
             });
             swiper.on('touchEnd', function(e){
                 // console.log('end: '+ e.changedTouches[0].screenY);
 
-                if(e.changedTouches && (yPosition - e.changedTouches[0].screenY > 50) ){
+                if(e.changedTouches && (yPosition - e.changedTouches[0].screenY > 100) ){
                     // console.log('move up');
                     self.hideSliderWrapper();
                 }
+
+                if(e.changedTouches && (xPosition - e.changedTouches[0].pageX > 50) ){
+                    self.outerSwiper.slideNext();
+                }
+
+                if(e.changedTouches && (e.changedTouches[0].pageX - xPosition > 50) ){
+                    if(self.outerTimer){
+                        clearTimeout(self.outerTimer);
+                    }
+                    swiper.slideTo(0);
+                    self.outerSwiper.slidePrev();
+                }
             });
+            swiper.on('reachEnd', function(e){
+                const outerIndex = $('.insf__story-content.swiper-slide-active').index();
+                $(`.insf__story-group:nth-child(${ outerIndex + 1 })`).addClass('insf__story-group--viewed');
+                self.outerTimer = setTimeout(() => {
+                    self.outerSwiper.slideNext();
+                    swiper.slideTo(0);
+                }, 2000);
+            });
+
+            const halfScreen = window.screen.width/2;
+            swiper.on('click', function(e){
+                if(e.changedTouches[0].pageX > halfScreen){
+                    swiper.slideNext();
+                }else{
+                    swiper.slidePrev();
+                }
+            });
+
+            // const halfScreen = window.screen.width/2;
+            // swiper.on('click', function(e){
+            //     if(e.changedTouches[0].pageX > halfScreen){
+            //         self.outerSwiper.slideNext();
+            //     }else{
+            //         self.outerSwiper.slidePrev();
+            //     }
+            // });
         });
 
         this.outerSwiper = outerSwiper;
@@ -180,19 +237,30 @@ class initFeedFunction {
     swipeEventHandler(type, depth, direction) {
         const outerIndex = $('.insf__story-content.swiper-slide-active').index();
         const innerIndex = $('.swiper-slide-active .swiper-slide-active').index();
+        // const innerTotal = $('.insf__story-content-title-progress-section').length;
+
+        // console.log(innerIndex, innerTotal);
 
         if (type === 'start') {
             this.pausePlayingVideos();
             this.automaticallyPlayVideos();
             this.setProgressBar(outerIndex, innerIndex);
+
+            // if( depth == 'inner' && innerIndex == innerTotal ){
+            //     $(`.insf__story-group:nth-child(${ outerIndex })`).addClass('insf__story-group--viewed');
+            // }
         } 
 
         if (depth === 'outer') {
-            $(`.insf__story-group:nth-child(${ outerIndex + 1 })`).addClass('insf__story-group--viewed');
+            // $(`.insf__story-group:nth-child(${ outerIndex + 1 })`).addClass('insf__story-group--viewed');
+
+            
             if (direction === 'next') {
-                
+                this.innerSwiper[outerIndex - 1].autoplay.stop();
+                this.innerSwiper[outerIndex].autoplay.start();
             } else if (direction === 'prev') {
-                
+                this.innerSwiper[outerIndex + 1].autoplay.stop();
+                this.innerSwiper[outerIndex].autoplay.start();
             }
         } else if (depth === 'inner') {
             if (direction === 'next') {
@@ -227,15 +295,16 @@ class initFeedFunction {
 
         $('.js-story-thumbnail').on('click', function() {
             const outerIndex = $(this).parent().index();
-            $(this).parent().addClass('insf__story-group--viewed');
+            // $(this).parent().addClass('insf__story-group--viewed');
 
             self.showSliderWrapper();
             self.initSwiper();
 
             self.outerSwiper.slideTo(outerIndex);
-            self.innerSwiper[outerIndex].slideTo(0);
+            self.innerSwiper[outerIndex].autoplay.start();
+            // self.innerSwiper[outerIndex].slideTo(0);
             self.automaticallyPlayVideos();
-            self.setProgressBar(outerIndex, 1);
+            // self.setProgressBar(outerIndex, 1);
 
 
 
