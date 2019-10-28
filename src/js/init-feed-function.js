@@ -17,6 +17,7 @@ class initFeedFunction {
         this.bindThumbnailEvent();
         this.bindStoryCloseEvent();
         this.initVimeo();
+        this.getSwiperProgress();
         // this.bindSwipeCloseEvent();
         // this.initSwiper();
     }
@@ -117,6 +118,13 @@ class initFeedFunction {
         let xPosition = 0;
 
         innerSwiper.forEach(swiper => {
+            // if (this.swiperProgress) {
+            //     if (index in this.swiperProgress) {
+            //         const oldIndex = this.swiperProgress[index];
+            //         swiper.slideTo(oldIndex);
+            //     }
+            // }
+
             // console.log(swiper);
             swiper.on('touchStart', function(e){
                 // console.log(e);
@@ -149,7 +157,10 @@ class initFeedFunction {
             });
             swiper.on('reachEnd', function(e){
                 const outerIndex = $('.insf__story-content.swiper-slide-active').index();
-                $(`.insf__story-group:nth-child(${ outerIndex + 1 })`).addClass('insf__story-group--viewed');
+                const innerIndex = $('.swiper-slide-active .swiper-slide-active').index();
+                const $storyGroup = $(`.insf__story-group:nth-child(${ outerIndex + 1 })`);
+                $storyGroup.addClass('insf__story-group--viewed');
+                $storyGroup.find('insf__story-content-title-progress-section')
                 self.outerTimer = setTimeout(() => {
                     self.outerSwiper.slideNext();
                     swiper.slideTo(0);
@@ -193,6 +204,7 @@ class initFeedFunction {
     }
 
     setProgressBar(outerIndex, innerIndex) {
+        console.log('setting progress bar', outerIndex, innerIndex);
         const $outer = $(`.insf__story-content:nth-child(${ outerIndex + 1 })`);
         $outer.find('.insf__story-content-title-progress-section').each((index, ele) => {
             $(ele).removeClass('insf__story-content-title-progress-section--current');
@@ -205,6 +217,35 @@ class initFeedFunction {
                 } 
             }
         });
+    }
+
+    setSwiperProgress(outerIndex, innerIndex) {
+        console.log('setting Swiper Progress', outerIndex, innerIndex);
+        const $storyGroup = $(`.insf__story-group:nth-child(${ outerIndex + 1 })`);
+        if (innerIndex >= +$storyGroup.attr('data-swiper-slides')) {
+            $storyGroup.addClass('insf__story-group--viewed');
+        }
+        if (outerIndex in this.setSwiperProgress) {
+            if (innerIndex - 1 > this.setSwiperProgress[outerIndex]) {
+                this.swiperProgress[outerIndex] = innerIndex - 1;
+            }
+        } else {
+            this.swiperProgress[outerIndex] = innerIndex - 1;
+        }
+        localStorage.setItem('mrIns_swiperProgress', JSON.stringify(this.swiperProgress));
+    }
+
+    getSwiperProgress() {
+        const swiperProgress = JSON.parse(localStorage.getItem('mrIns_swiperProgress')) || {};
+        this.swiperProgress = swiperProgress;
+        if (swiperProgress) {
+            for (const [outerIndex, slideIndex] of Object.entries(swiperProgress)) {
+                const $storyGroup = $(`.insf__story-group:nth-child(${ +outerIndex + 1 })`);
+                if (slideIndex + 1 >= +$storyGroup.attr('data-swiper-slides')) {
+                    $storyGroup.addClass('insf__story-group--viewed');
+                }
+            }
+        }
     }
 
     automaticallyPlayVideos() {
@@ -249,6 +290,7 @@ class initFeedFunction {
             this.pausePlayingVideos();
             this.automaticallyPlayVideos();
             this.setProgressBar(outerIndex, innerIndex);
+            this.setSwiperProgress(outerIndex, innerIndex);
 
             // if( depth == 'inner' && innerIndex == innerTotal ){
             //     $(`.insf__story-group:nth-child(${ outerIndex })`).addClass('insf__story-group--viewed');
@@ -262,9 +304,12 @@ class initFeedFunction {
             if (direction === 'next') {
                 this.innerSwiper[outerIndex - 1].autoplay.stop();
                 this.innerSwiper[outerIndex].autoplay.start();
+                // this.setSwiperProgress(outerIndex - 1, )
             } else if (direction === 'prev') {
                 this.innerSwiper[outerIndex + 1].autoplay.stop();
                 this.innerSwiper[outerIndex].autoplay.start();
+                const prevInnerIndex = $(`.insf__story-content:nth-child(${ outerIndex - 1 })`);
+                // this.setSwiperProgress(outerIndex + 1, )
             }
         } else if (depth === 'inner') {
             if (direction === 'next') {
@@ -300,6 +345,12 @@ class initFeedFunction {
         $('.js-story-thumbnail').on('click', function() {
             const outerIndex = $(this).parent().index();
             // $(this).parent().addClass('insf__story-group--viewed');
+            const $firstProgressBar = $(`.insf__story-content:nth-child(${ outerIndex + 1})`).find('.insf__story-content-title-progress-section:first-child');
+            if (!$firstProgressBar.hasClass('insf__story-content-title-progress-section--viewed')) {
+                $firstProgressBar.addClass('insf__story-content-title-progress-section--current');
+            }
+
+            self.setSwiperProgress(outerIndex, 1);
 
             self.showSliderWrapper();
             self.initSwiper();
