@@ -169,10 +169,12 @@ class initFeedFunction {
 
             const halfScreen = window.screen.width/2;
             swiper.on('click', function(e){
-                if(e.changedTouches[0].pageX > halfScreen){
-                    swiper.slideNext();
-                }else{
-                    swiper.slidePrev();
+                if (!$(e.changedTouches[0].target).hasClass('insf__story-content-item-text')) {
+                    if (e.changedTouches[0].pageX > halfScreen) {
+                        swiper.slideNext();
+                    } else {
+                        swiper.slidePrev();
+                    }
                 }
             });
 
