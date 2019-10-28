@@ -127,7 +127,38 @@
             }
 
             &--viewed {
-                background-color: #fff;
+                // background-color: #fff;
+                position: relative;
+
+                &:after {
+                    content: ' ';
+                    background-color: #fff;
+                    display: block;
+                    height: 2.5px;
+                    top: 0.4px;
+                    left: 0;
+                    width: 100%;
+                    position: absolute;
+                    animation: chagneWidth 3s linear;
+                }
+            }
+
+            // .defaultBg {
+            //     margin: 10px auto;
+            //     width: 150px;
+            //     height: 3px;
+            //     background-color: grey;
+            //     &.defaultBg-Viewed {
+                    
+            //     }
+            // }
+            @keyframes chagneWidth {
+                from {
+                    max-width: 0;
+                }
+                to {
+                    max-width: 100%;
+                }
             }
         }
 

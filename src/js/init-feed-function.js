@@ -153,7 +153,7 @@ class initFeedFunction {
                 self.outerTimer = setTimeout(() => {
                     self.outerSwiper.slideNext();
                     swiper.slideTo(0);
-                }, 2000);
+                }, 3000);
             });
 
             const halfScreen = window.screen.width/2;
@@ -302,11 +302,18 @@ class initFeedFunction {
 
             self.outerSwiper.slideTo(outerIndex);
             self.innerSwiper[outerIndex].autoplay.start();
-            // self.innerSwiper[outerIndex].slideTo(0);
+            // self.innerSwiper[outerIndex + 1].slideTo(0);
             self.automaticallyPlayVideos();
             // self.setProgressBar(outerIndex, 1);
 
+            self.innerSwiper.forEach((swiper,index) => {
+                swiper.autoplay.stop();
 
+                if( outerIndex !== index ){
+                    swiper.slideTo(0);
+                }
+                
+            });
 
             // $('.insf__story-content').removeClass('active');
             
@@ -332,6 +339,12 @@ class initFeedFunction {
         $('body').css('top', '0px');
         $('body').scrollTop(parseInt($('body').attr('data-original-height')));
         $('html').scrollTop(parseInt($('html').attr('data-original-height')));
+
+        const outerIndex = $('.insf__story-content.swiper-slide-active').index();
+
+        this.innerSwiper.forEach((swiper,index) => {
+            swiper.autoplay.stop();
+        });
     }
 }
 

@@ -20,6 +20,16 @@ function storyGroupData(path) {
                         type: 'image',
                         src: path + '/src/img/afterpay/1.jpg',
                         title: 'image title',
+                        text: [
+                            {
+                                colour: '#ffd4f7',
+                                backgroundColour: 'rgba(0,0,0,0.7)',
+                                fontSize: '80px',
+                                text: 'pink text',
+                                link: 'Iceonline.com.au',
+                                top: 'calc(10vh + 65px)'
+                            }
+                        ]
                         // text: [
                         //     {
                         //         colour: 'aqua',
